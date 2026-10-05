@@ -1,0 +1,22 @@
+Tern tools
+Copyright 2026 aSaaSin Ventures LLC
+
+SCOPE
+
+The Apache License, Version 2.0 (see LICENSE) applies only to the following, as published in
+this repository and its GitHub releases:
+  - tern (also run as tern-server and tern-connector) and the tern-cli command-line tool;
+  - tern-install.sh;
+  - the Homebrew formula for them.
+
+It does not apply to, and grants no rights in:
+  - the Tern iPhone app;
+  - Tern Relay, the hosted relay service, and its server software;
+  - any source code not published in this repository;
+  - the Tern, Tern Relay and aSaaSin names, or their logos;
+  - any other product or service of aSaaSin Ventures LLC.
+These remain proprietary to aSaaSin Ventures LLC.
+
+THIRD-PARTY SOFTWARE
+
+These tools include third-party software, each under its own license; see THIRD_PARTY_NOTICES.

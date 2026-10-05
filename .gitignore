@@ -1,0 +1,9 @@
+# Whitelist: the public repo holds only these files. Everything else (release.sh, .private/, out/) stays on the
+# maintainer's Mac; .private/allowed-paths lists the same files, and the hooks enforce it.
+/*
+!/.gitignore
+!/tern-install.sh
+!/README.md
+!/LICENSE
+!/NOTICE
+!/THIRD_PARTY_NOTICES
