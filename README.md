@@ -13,7 +13,7 @@ on the computers: `tern` and the `tern-cli` command-line tool.
 
 The Tern iPhone app can set these up for you over SSH. This repository is for installing them yourself.
 
-## Reaching your computer from anywhere
+## Reaching your computer through Tern Relay
 
 The connector keeps an outbound connection to Tern Relay. When you connect from your phone, Tern Relay introduces
 your phone and your computer to each other, and the session then runs directly between them. Tern Relay never sees
@@ -32,7 +32,7 @@ distributions); `tern-install.sh --connector` checks for them.
 curl -fsSL https://github.com/asaasinventuresllc/Tern/releases/latest/download/tern-install.sh | sh
 ```
 
-To reach the computer from anywhere, also set up the connector and allow your phone:
+To reach the computer through Tern Relay, also set up the connector and allow your phone:
 
 ```sh
 curl -fsSL https://github.com/asaasinventuresllc/Tern/releases/latest/download/tern-install.sh | sh -s -- \

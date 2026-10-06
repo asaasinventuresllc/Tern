@@ -7,7 +7,7 @@
 #
 # Options:
 #   --connector            also run the connector as a login-user service, so your phone can reach this computer
-#                          from anywhere (it connects to Tern Relay, which introduces your phone and this computer)
+#                          through Tern Relay, which introduces your phone and this computer
 #   --allow HEX            let this phone (its 64-hex Tern key) open terminal sessions through the connector
 #   --sha256 NAME=HASH     also require this SHA-256 for release file NAME (repeatable)
 #   --version X            tools version to install (default below)
@@ -24,7 +24,7 @@
 set -eu
 umask 077
 
-VERSION="0.0.1"
+VERSION="0.0.2"
 REPO_URL="https://github.com/asaasinventuresllc/Tern"
 LABEL="com.asaasin.tern-connector"
 UNIT="tern-connector"
@@ -217,7 +217,7 @@ done
 
 # --- the connector service --------------------------------------------------------------------------------------
 if [ "$CONNECTOR" = 0 ]; then
-  say "Installed in ~/.tern. To reach this computer from anywhere, run this again with --connector."
+  say "Installed in ~/.tern. To reach this computer through Tern Relay, run this again with --connector."
   say "Add ~/.tern to your PATH to use the tern-cli command-line tool."
   say "Licenses: $REPO_URL/releases/download/v$VERSION/NOTICE and …/THIRD_PARTY_NOTICES"
   exit 0
@@ -285,4 +285,4 @@ fi
 [ -n "$id" ] || die "the connector started but didn't report an endpoint id; see ~/.tern/connector.log"
 say ""
 say "This computer's endpoint id: $id"
-say "Add it in the Tern app to reach this computer from anywhere."
+say "Add it in the Tern app to reach this computer through Tern Relay."
