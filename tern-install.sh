@@ -24,7 +24,7 @@
 set -eu
 umask 077
 
-VERSION="0.0.5"
+VERSION="0.0.6"
 REPO_URL="https://github.com/asaasinventuresllc/Tern"
 LABEL="com.asaasin.tern-connector"
 UNIT="tern-connector"
