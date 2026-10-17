@@ -63,8 +63,12 @@ shasum -a 256 -c SHA256SUMS --ignore-missing
 ## Homebrew
 
 ```sh
+brew trust --formula asaasinventuresllc/tern/tern-tools
 brew install asaasinventuresllc/tern/tern-tools
 ```
+
+Homebrew 7 and later load a formula from a tap outside Homebrew's own only after you trust it; the first line
+trusts this one formula. Later updates are `brew upgrade tern-tools`.
 
 This installs `tern` (with its `tern-server` and `tern-connector` links) and the `tern-cli` command-line tool into
 Homebrew's `bin`. It installs the programs only: set up the connector with `tern-install.sh --connector` or from the
