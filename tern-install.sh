@@ -11,7 +11,8 @@
 #   --allow HEX            let this phone (its 64-hex Tern key) open terminal sessions through the connector
 #   --sha256 NAME=HASH     also require this SHA-256 for release file NAME (repeatable)
 #   --version X            tools version to install (default below)
-#   --base-url URL         where the release files are (default: this version's GitHub release)
+#   --base-url URL         where the release files are (default: this version's GitHub release); file:///DIR for
+#                          a folder already on this computer (how `tern-cli deploy` installs on a box with no internet)
 #   --no-service           with --connector: install files and settings, but don't start the connector
 #   --print-service        print the connector's LaunchAgent or systemd unit and exit (changes nothing)
 #   --uninstall            stop the connector and remove Tern's files from ~/.tern
@@ -153,10 +154,11 @@ fi
 # --- download and verify ----------------------------------------------------------------------------------------
 [ -n "$BASE_URL" ] || BASE_URL="$REPO_URL/releases/download/v$VERSION"
 case "$BASE_URL" in
-  https://*|http://127.0.0.1[:/]*|http://localhost[:/]*) ;;
-  *) die "--base-url must be https (or a local http test server)" ;;
+  https://*|http://127.0.0.1[:/]*|http://localhost[:/]*|file:///*) ;;
+  *) die "--base-url must be https, a folder here (file:///…), or a local http test server" ;;
 esac
 fetch() {
+  case "$1" in file://*) cp "${1#file://}" "$2"; return ;; esac
   if command -v curl >/dev/null 2>&1; then curl -fsSL -o "$2" "$1"
   elif command -v wget >/dev/null 2>&1; then wget -q -O "$2" "$1"
   else die "needs curl or wget"; fi
